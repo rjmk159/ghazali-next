@@ -99,15 +99,15 @@ export default function ProductSlug() {
     return (
         <div>
             <div className="max-w-6xl mx-auto px-4">
-                <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-gray-900 my-8">
+                <h2 className="single-product-text text-3xl sm:text-5xl font-light tracking-tight text-gray-900 my-8">
                     {product.name}
                 </h2>
-                <Breadcrumbs
+                {/* <Breadcrumbs
                     items={
                         product.collections[product.collections.length - 1]
                             ?.breadcrumbs ?? []
                     }
-                ></Breadcrumbs>
+                ></Breadcrumbs> */}
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start mt-4 md:mt-12">
                     {/* Image gallery */}
                     <div className="w-full max-w-2xl mx-auto sm:block lg:max-w-none">
@@ -158,7 +158,7 @@ export default function ProductSlug() {
                             <h3 className="sr-only">Description</h3>
 
                             <div
-                                className="text-base text-gray-700"
+                                className="single-product-description"
                                 dangerouslySetInnerHTML={{
                                     __html: product.description,
                                 }}
@@ -233,16 +233,7 @@ export default function ProductSlug() {
                                 <div className="flex sm:flex-col1 align-baseline">
                                     <button
                                         type="submit"
-                                        className={`max-w-xs flex-1 ${
-                                            transition.state !== 'idle'
-                                                ? 'bg-gray-400'
-                                                : qtyInCart === 0
-                                                ? 'bg-primary-600 hover:bg-primary-700'
-                                                : 'bg-green-600 active:bg-green-700 hover:bg-green-700'
-                                        }
-                                     transition-colors border border-transparent rounded-md py-3 px-8 flex items-center
-                                      justify-center text-base font-medium text-white focus:outline-none
-                                      focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-primary-500 sm:w-full`}
+                                        className={`add-to-cart`}
                                         disabled={transition.state !== 'idle'}
                                     >
                                         {qtyInCart ? (
@@ -254,8 +245,8 @@ export default function ProductSlug() {
                                             `Add to cart`
                                         )}
                                     </button>
-
-                                    <button
+<div className='bg-effect' />
+                                    {/* <button
                                         type="button"
                                         className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                                     >
@@ -266,10 +257,10 @@ export default function ProductSlug() {
                                         <span className="sr-only">
                                             Add to favorites
                                         </span>
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
-                            <div className="mt-2 flex items-center space-x-2">
+                            <div className="mt-10 flex items-center space-x-2">
                                 <span className="text-gray-500">
                                     {selectedVariant?.sku}
                                 </span>
@@ -283,7 +274,7 @@ export default function ProductSlug() {
                                 </div>
                             )}
 
-                            <section className="mt-12 pt-12 border-t text-xs">
+                            {/* <section className="mt-12 pt-12 border-t text-xs">
                                 <h3 className="text-gray-600 font-bold mb-2">
                                     Shipping & Returns
                                 </h3>
@@ -306,14 +297,14 @@ export default function ProductSlug() {
                                         for further information.
                                     </p>
                                 </div>
-                            </section>
+                            </section> */}
                         </activeOrderFetcher.Form>
                     </div>
                 </div>
             </div>
-            <div className="mt-24">
+            {/* <div className="mt-24">
                 <TopReviews></TopReviews>
-            </div>
+            </div> */}
         </div>
     );
 }

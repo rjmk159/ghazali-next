@@ -4,7 +4,7 @@ import { Link } from '@remix-run/react';
 export function Breadcrumbs({
   items,
 }: {
-  items: { name: string; slug: string; id: string }[]
+  items: { name: string; slug: string; id: string, descrition: string }[]
 }) {
   return (
     <nav className="flex" aria-label="Breadcrumb">

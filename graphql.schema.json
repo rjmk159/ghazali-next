@@ -17648,7 +17648,7 @@
             "args": [
               {
                 "name": "id",
-                "description": null,
+                "description": "description",
                 "type": {
                   "kind": "SCALAR",
                   "name": "ID",

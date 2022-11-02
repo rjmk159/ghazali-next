@@ -8,7 +8,8 @@ import {
     ShouldReloadFunction,
     useLoaderData,
 } from '@remix-run/react';
-import styles from './styles/app.css';
+import styles from './styles/custom.css';
+import appCss from './styles/app.css';
 import { Header } from './components/header/Header';
 import {
     DataFunctionArgs,
@@ -23,13 +24,20 @@ import { CartTray } from '~/components/cart/CartTray';
 import { getActiveCustomer } from '~/providers/customer/customer';
 import Footer from '~/components/footer/Footer';
 import { useActiveOrder } from '~/utils/use-active-order';
+import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css';
 
 export const meta: MetaFunction = () => {
     return { title: APP_META_TITLE, description: APP_META_DESCRIPTION };
 };
 
 export function links() {
-    return [{ rel: 'stylesheet', href: styles }];
+    return [
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css' },
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css' },
+        { rel: 'stylesheet', href: appCss },
+        { rel: 'stylesheet', href: bootstrapCSS },
+        { rel: 'stylesheet', href: styles },
+    ];
 }
 
 const devMode =
@@ -104,6 +112,21 @@ export default function App() {
                     content="width=device-width,initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" type="image/png"></link>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin="true"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+                    rel="stylesheet"
+                />
+
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+                    rel="stylesheet"
+                />
                 <Meta />
                 <Links />
             </head>
@@ -112,7 +135,7 @@ export default function App() {
                     onCartIconClick={() => setOpen(!open)}
                     cartQuantity={activeOrder?.totalQuantity ?? 0}
                 />
-                <main className="">
+                <main className="main-content">
                     <Outlet
                         context={{
                             activeOrderFetcher,

@@ -15,9 +15,11 @@ gql`
                 id
                 name
                 slug
+                description
                 parent {
                     name
                 }
+
                 featuredAsset {
                     id
                     preview
@@ -33,7 +35,8 @@ gql`
             id
             name
             slug
-            breadcrumbs {
+            description
+            breadcrumb {
                 id
                 name
                 slug
